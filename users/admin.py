@@ -9,7 +9,7 @@ class CustomUserAdmin(UserAdmin):
 
     fieldsets = UserAdmin.fieldsets + (
         (
-            "Custon Profile",
+            "Custom Profile",
             {
                 "fields": (
                     "avatar",
