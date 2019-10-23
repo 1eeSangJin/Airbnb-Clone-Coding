@@ -4,7 +4,7 @@ from rooms.models import Amenity
 
 class Command(BaseCommand):
 
-    help = "This command creates many users"
+    help = "This command creates amenities"
 
     def add_arguments(self, parser):
         parser.add_argument("--number", help="How many users do you want to create")
@@ -58,5 +58,3 @@ class Command(BaseCommand):
         for a in amenities:
             Amenity.objects.create(name=a)
         self.stdout.write(self.style.SUCCESS("Amenities created!"))
-
-        print()
