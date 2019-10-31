@@ -10,9 +10,9 @@
 
     {% for room in rooms  %}
         <h3>
-            {% comment %} <a href="{% url "rooms:detail" room.pk %}"> {% endcomment %}
+            <a href="{% url "rooms:detail" room.pk %}">
                 {{room.name}} / ${{room.price}}
-            {% comment %} </a> {% endcomment %}
+            </a>
         </h3>
     {% endfor %}
 
