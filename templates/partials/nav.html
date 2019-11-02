@@ -1,4 +1,9 @@
 <a href="{% url "core:home" %}">Nbnb</a>
 <ul class="flex items-center text-sm font-medium h-full">
-    <li class="nav_link"><a href="">Log in </a></li>
+    {% if user.is_authenticated %}
+        <li class="nav_link"><a href="{% url "users:logout" %}">Log Out</a></li>
+    {% else %}
+        <li class="nav_link"><a href="{% url "users:login" %}">Log in</a></li>
+    {% endif %}
+    
 </ul>
