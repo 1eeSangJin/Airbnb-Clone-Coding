@@ -126,3 +126,4 @@ dmypy.json
 
 # Upload File Folder
 uploads/
+node_modules
