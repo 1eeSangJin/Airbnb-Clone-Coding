@@ -73,7 +73,7 @@ class Room(core_models.TimeStampedModel):
     host = models.ForeignKey(
         "users.User", related_name="rooms", on_delete=models.CASCADE
     )
-    roomType = models.ForeignKey(
+    room_type = models.ForeignKey(
         "RoomType", related_name="rooms", on_delete=models.SET_NULL, null=True
     )
     amenities = models.ManyToManyField("Amenity", related_name="rooms", blank=True)
@@ -99,8 +99,11 @@ class Room(core_models.TimeStampedModel):
             return round(all_ratings / len(all_reviews))
 
     def first_photo(self):
-        photo, = self.photos.all()[:1]
-        return photo.file.url
+        try:
+            photo, = self.photos.all()[:1]
+            return photo.file.url
+        except ValueError:
+            return None
 
     def get_next_four_photos(self):
         photos = self.photos.all()[1:5]
